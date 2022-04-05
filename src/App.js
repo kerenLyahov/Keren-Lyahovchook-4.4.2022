@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Weather from "./Weather";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <div className="App container">
+      <Weather city={"Tel Aviv"} />
+      <div id="opnSrcLink">
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/kerenLyahov/Keren-Lyahovchook-4.4.2022"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
-        </a>
-      </header>
+          Open-source code
+        </a>{" "}
+        by Keren Lyahovchook
+      </div>
     </div>
   );
 }
