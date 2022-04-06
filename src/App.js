@@ -1,10 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Weather from "./Weather";
+import Time from "./Time";
 
 function App() {
   return (
     <div className="App container">
+      <div className="time"> {Time()}</div>
       <Weather city={"Tel Aviv"} />
       <div id="opnSrcLink">
         <a

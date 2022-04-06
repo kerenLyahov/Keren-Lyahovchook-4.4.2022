@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import Current from "./Weather/Current";
 import Forecast from "./Weather/Forecast";
+import "./Weather.css";
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({
     ready: false,
-    unit: "metric",
   });
 
   let [cityName, setCityName] = useState(props.city);
@@ -15,12 +15,11 @@ export default function Weather(props) {
 
   function search() {
     let URL = `http://dataservice.accuweather.com/locations/v1/search?q=${cityName}&apikey=${ApiKey}`;
-    //axios.get(URL).then(handleResponse);
+    axios.get(URL).then(handleResponse);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-
     search();
   }
 
@@ -29,29 +28,33 @@ export default function Weather(props) {
   }
 
   function handleResponse(response) {
-    console.log(response);
     setWeatherData({
       ready: true,
-      displayCityname: response.data[0].EnglishName,
       key: response.data[0].Key,
-      temperature: response.data[0].GeoPosition.Elevation,
     });
   }
 
   if (weatherData.ready) {
     return (
-      <div>
-        <div className="searchBody">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="search"
-              placeholder="Enter a city"
-              onChange={updateCity}
-            />
-            <input type="submit" className="searchButton" value="search" />
-          </form>
-        </div>
-        <Current data={weatherData.temperature} />
+      <div className="weather-main">
+        <form onSubmit={handleSubmit} className=" align-items-center form">
+          <div className="form-group row align-items-center">
+            <div className="col-sm-auto my-1">
+              <input
+                type="search"
+                placeholder="Enter a city"
+                onChange={updateCity}
+                className="form-control"
+              />
+            </div>
+            <div className="col-auto my-1">
+              <button type="submit" className="btn btn-primary submit-btn">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+        <Current data={weatherData.key} />
         <Forecast data={weatherData.key} />
       </div>
     );

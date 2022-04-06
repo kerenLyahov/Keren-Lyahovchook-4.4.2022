@@ -1,0 +1,41 @@
+/* .weather-main {
+  display: inline-block;
+  margin-top: 10px;
+} */
+.submin-btn {
+  display: inline;
+}
+.form {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.weather-main {
+  border: 3px solid;
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  animation: borderAnimation 5s infinite alternate;
+  font-family: inherit;
+  background-image: linear-gradient(
+    rgba(150, 220, 241, 0.5),
+    rgba(32, 160, 245, 0.5)
+  );
+}
+@keyframes borderAnimation {
+  0% {
+    border-color: #225763;
+  }
+  33% {
+    border-color: #41d8bf;
+  }
+  66% {
+    border-color: #2f89b3;
+  }
+  100% {
+    border-color: #3b50b2;
+  }
+}

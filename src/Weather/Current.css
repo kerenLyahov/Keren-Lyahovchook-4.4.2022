@@ -1,0 +1,10 @@
+.unit-btn {
+  float: right;
+  display: inline;
+}
+.cityName {
+  font-size: 2.5em;
+}
+.temperature {
+  font-size: 3em;
+}

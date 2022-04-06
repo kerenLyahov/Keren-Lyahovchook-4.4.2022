@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Rubik", sans-serif;
 }
 #opnSrcLink {
   text-align: left;
@@ -7,4 +8,7 @@
   margin-left: 20%;
   max-width: 800px;
   min-width: 730px;
+}
+.time {
+  /* float: left; */
 }
