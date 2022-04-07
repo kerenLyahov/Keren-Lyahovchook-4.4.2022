@@ -1,14 +1,26 @@
 .App {
   text-align: center;
   font-family: "Rubik", sans-serif;
+  max-width: 720px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
 }
 #opnSrcLink {
-  text-align: left;
+  text-align: center;
   font-family: "Luxurious Roman", cursive;
-  margin-left: 20%;
-  max-width: 800px;
-  min-width: 730px;
+}
+.displayStatus {
+  align-self: flex-end;
+}
+.toggle {
+  align-self: flex-end;
 }
 .time {
-  /* float: left; */
+  width: 40%;
+  text-align: left;
+}
+.main-btn {
+  margin-right: 5px;
 }

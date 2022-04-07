@@ -5,9 +5,10 @@ export const lightTheme = {
   background: "#363537",
   toggleText: "#C7EAFA",
   content: "dark",
-  header: "#680747",
-  buttonBackground: "#ADD8E6",
+  buttonBackground: "#0d6efd",
+  buttonBorder: "#0a58ca",
   searchBackground: "#eaf6f6",
+  forecastBackground: "#225763",
 };
 export const darkTheme = {
   body: "#363537",
@@ -16,8 +17,8 @@ export const darkTheme = {
   background: "#c4c1e0",
   toggleText: "black",
   content: "light",
-  header: "#f70776",
-  buttonBackground: "#97cba9",
+  buttonBackground: "#0a1e3c",
   buttonBorder: "#db7aa6",
   searchBackground: "#ececec",
+  forecastBackground: "#6bcfe6",
 };

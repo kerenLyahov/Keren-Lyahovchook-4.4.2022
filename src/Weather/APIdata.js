@@ -52,8 +52,6 @@ export default function APIdata(props) {
       }),
     });
   }
-  console.log(forecast.min);
-
   useEffect(() => {
     search();
   }, [props.name]);

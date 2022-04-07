@@ -8,14 +8,17 @@ export const GlobalStyles = createGlobalStyle`
   a {
     color: ${({ theme }) => theme.text};
   }
-  h1{
-    color:${({ theme }) => theme.header};
-  }
-   #truncated, .submit{
+
+  .submit-btn, .unit-btn{
      background-color: ${({ theme }) => theme.buttonBackground}; 
      border: 2px solid ${({ theme }) => theme.buttonBorder};
   }
+
 .search{
     background-color: ${({ theme }) => theme.searchBackground}; 
+}
+.forecast{
+    border-top: 3px solid ${({ theme }) => theme.forecastBackground};
+    border-bottom: 3px solid ${({ theme }) => theme.forecastBackground};
 }
   `;

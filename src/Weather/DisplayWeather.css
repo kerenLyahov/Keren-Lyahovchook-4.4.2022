@@ -3,12 +3,20 @@
   justify-content: space-evenly;
   flex-direction: column;
 }
+
 .unit-btn {
   float: right;
-  display: inline;
+  position: relative;
+  right: 1em;
 }
+.unit-btn:last-of-type {
+  right: 2em;
+}
+
 .cityName {
   font-size: 2.5em;
+  position: relative;
+  bottom: 0.35em;
 }
 .temperature {
   font-size: 3em;
@@ -19,5 +27,11 @@
 .forecast-data {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+.forecast {
+  border-top: 3px solid #225763;
+  border-bottom: 3px solid #225763;
+  padding: 1em;
 }

@@ -15,8 +15,15 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <div className="App container">
-        <div className="time"> {Time()}</div>
-        <Toggle theme={theme} toggleTheme={themeToggler} />
+        <div className="header">
+          <span className="time">{Time()}</span>
+          <Toggle theme={theme} toggleTheme={themeToggler} className="toggle" />
+          <div className="displayStatus">
+            <button className="btn btn-primary main-btn">main</button>
+            <button className="btn btn-primary fav-btn">favorite</button>
+          </div>
+        </div>
+
         <Weather city={"Tel Aviv"} />
         <div id="opnSrcLink">
           <a
