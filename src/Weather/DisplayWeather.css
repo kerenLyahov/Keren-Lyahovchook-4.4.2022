@@ -1,0 +1,23 @@
+.body {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.unit-btn {
+  float: right;
+  display: inline;
+}
+.cityName {
+  font-size: 2.5em;
+}
+.temperature {
+  font-size: 3em;
+}
+.description {
+  font-size: 1.5em;
+}
+.forecast-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

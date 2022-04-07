@@ -26,7 +26,14 @@ function App() {
           >
             Open-source code
           </a>{" "}
-          by Keren Lyahovchook
+          by{" "}
+          <a
+            href="https://www.linkedin.com/in/keren-lyahov/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Keren Lyahovchook
+          </a>
         </div>
       </div>
     </ThemeProvider>

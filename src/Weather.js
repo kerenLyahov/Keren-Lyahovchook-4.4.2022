@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Current from "./Weather/Current";
-import Forecast from "./Weather/Forecast";
+import APIdata from "./Weather/APIdata";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -11,7 +10,7 @@ export default function Weather(props) {
 
   let [cityName, setCityName] = useState(props.city);
 
-  const ApiKey = `RQdrnJyUpOMTZn7Sn8mVB4kLM4TFfKgz`;
+  let ApiKey = `JOecsAXuOGF7ytLCkBLNtXn1m9fsDRGN`;
 
   function search() {
     let URL = `http://dataservice.accuweather.com/locations/v1/search?q=${cityName}&apikey=${ApiKey}`;
@@ -31,6 +30,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       key: response.data[0].Key,
+      name: response.data[0].EnglishName,
     });
   }
 
@@ -54,8 +54,11 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <Current data={weatherData.key} />
-        <Forecast data={weatherData.key} />
+        <APIdata
+          data={weatherData.key}
+          apikey={ApiKey}
+          name={weatherData.name}
+        />
       </div>
     );
   } else {
