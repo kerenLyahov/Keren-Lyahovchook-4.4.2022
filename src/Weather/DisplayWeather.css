@@ -5,12 +5,14 @@
 }
 
 .unit-btn {
-  float: left;
+  float: right;
   position: relative;
   bottom: 15px;
+  margin-top: -2.5rem;
+  right: 0.5em;
 }
 .unit-btn:last-of-type {
-  left: 0.75em;
+  right: 3.5em;
 }
 
 .cityName {
@@ -40,7 +42,7 @@
 .temp-unit {
   font-size: 0.5em;
 }
-@media (max-width: 769px) {
+@media (max-width: 481px) {
   .forecast:nth-child(3) {
     border: none;
   }
@@ -50,8 +52,25 @@
     margin-bottom: 0;
     border-left: 2px solid #225763;
   }
+  .unit-switch-btn {
+    display: inline;
+    float: right;
+  }
 }
-
+@media (min-width: 481px) {
+  .forecast {
+    border-top: 3px solid #225763;
+    border-bottom: 3px solid #225763;
+    border-right: none;
+    border-left: none;
+    padding: 1em;
+    margin-bottom: 0;
+  }
+  .unit-switch-btn {
+    position: relative;
+    top: 3.5em;
+  }
+}
 @media (min-width: 769px) {
   .forecast-data {
     flex-wrap: nowrap;
@@ -60,16 +79,22 @@
     border-top: 3px solid #225763;
     border-bottom: 3px solid #225763;
     border-right: none;
+    border-left: none;
     padding: 1em;
     margin-bottom: 0;
   }
   .unit-btn {
     float: right;
     position: relative;
-    right: 1em;
+    right: 0.5em;
     bottom: 0;
   }
   .unit-btn:last-of-type {
-    left: -2em;
+    right: 3.5em;
+  }
+  .unit-switch-btn {
+    position: relative;
+    top: 2.5em;
+    right: 1em;
   }
 }

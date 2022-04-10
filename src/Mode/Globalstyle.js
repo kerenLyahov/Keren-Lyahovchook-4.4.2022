@@ -17,10 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 .search{
     background-color: ${({ theme }) => theme.searchBackground}; 
 }
-// .forecast{
-//     border-top: 3px solid ${({ theme }) => theme.forecastBackground};
-//     border-bottom: 3px solid ${({ theme }) => theme.forecastBackground};
-// }
+
 
 @media (min-width: 769px) {
  

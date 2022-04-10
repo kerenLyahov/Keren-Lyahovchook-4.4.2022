@@ -70,7 +70,7 @@ export default function DisplayWeather(props) {
   if (update.ready) {
     return (
       <div className="body">
-        <div>
+        <div className="unit-switch-btn">
           <button className="btn btn-primary btn-sm unit-btn" onClick={celsius}>
             °C
           </button>{" "}
