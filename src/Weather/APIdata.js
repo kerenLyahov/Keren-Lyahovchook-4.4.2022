@@ -16,8 +16,8 @@ export default function APIdata(props) {
   });
 
   function search() {
-    let currentURL = `http://dataservice.accuweather.com//currentconditions/v1/${key}?apikey=${props.apikey}`;
-    let forecastURL = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${props.apikey}`;
+    let currentURL = `https://dataservice.accuweather.com//currentconditions/v1/${key}?apikey=${props.apikey}`;
+    let forecastURL = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${props.apikey}`;
     axios.get(forecastURL).then(handleForecastResponse);
     axios.get(currentURL).then(handleCurrentResponse);
   }

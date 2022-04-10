@@ -11,7 +11,7 @@ export default function Weather(props) {
   let [location, setLocation] = useState("");
   let ApiKey = `RQdrnJyUpOMTZn7Sn8mVB4kLM4TFfKgz`;
   function search() {
-    let URL = `http://dataservice.accuweather.com/locations/v1/search?q=${cityName}&apikey=${ApiKey}`;
+    let URL = `https://dataservice.accuweather.com/locations/v1/search?q=${cityName}&apikey=${ApiKey}`;
     axios.get(URL).then(handleResponse);
   }
 
@@ -44,7 +44,7 @@ export default function Weather(props) {
     console.log(position);
     console.log(weatherData);
     setWeatherData({ ready: false });
-    let URL = ` http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${ApiKey}&q=${position.coords.latitude},${position.coords.longitude}`;
+    let URL = ` https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${ApiKey}&q=${position.coords.latitude},${position.coords.longitude}`;
     axios.get(URL).then(handleLocationResponse);
   }
   function handleLocationResponse(response) {
