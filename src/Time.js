@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Time.css";
 export default function Day() {
   let date = new Date();
   const month = [
@@ -39,12 +39,12 @@ export default function Day() {
   }
   return (
     <div>
-      <div>
+      <span>
         {dayName[date.getDay()]}, {todayDate}
-      </div>
-      <div className="time">
+      </span>{" "}
+      <span className="clock">
         {hours}:{minutes}
-      </div>
+      </span>
     </div>
   );
 }

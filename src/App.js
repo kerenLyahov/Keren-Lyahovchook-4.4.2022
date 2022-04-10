@@ -17,7 +17,7 @@ function App() {
       <GlobalStyles />
       <div className="App container">
         <div className="header">
-          <span className="time">{Time()}</span>
+          <span className="time-component">{Time()}</span>
 
           <div className="displayStatus">
             <button className="btn btn-primary main-btn submit-btn">
@@ -28,8 +28,12 @@ function App() {
               favorite
               {/* upon clicking will show the favorite component */}
             </button>
+            <Toggle
+              theme={theme}
+              toggleTheme={themeToggler}
+              className="toggle"
+            />
           </div>
-          <Toggle theme={theme} toggleTheme={themeToggler} className="toggle" />
         </div>
 
         <Weather city={"Tel Aviv"} />
@@ -47,6 +51,7 @@ function App() {
             href="https://www.linkedin.com/in/keren-lyahov/"
             target="_blank"
             rel="noopener noreferrer"
+            className="keren"
           >
             Keren Lyahovchook
           </a>
