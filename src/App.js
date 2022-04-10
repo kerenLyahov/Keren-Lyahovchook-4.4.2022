@@ -1,6 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Weather from "./Weather";
+import Favorite from "./Favorite/Favorite";
 import Time from "./Time";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./Mode/Globalstyle";
@@ -17,14 +18,22 @@ function App() {
       <div className="App container">
         <div className="header">
           <span className="time">{Time()}</span>
-          <Toggle theme={theme} toggleTheme={themeToggler} className="toggle" />
+
           <div className="displayStatus">
-            <button className="btn btn-primary main-btn">main</button>
-            <button className="btn btn-primary fav-btn">favorite</button>
+            <button className="btn btn-primary main-btn submit-btn">
+              main
+              {/* upon clicking will show the weather component */}
+            </button>
+            <button className="btn btn-primary fav-btn submit-btn">
+              favorite
+              {/* upon clicking will show the favorite component */}
+            </button>
           </div>
+          <Toggle theme={theme} toggleTheme={themeToggler} className="toggle" />
         </div>
 
         <Weather city={"Tel Aviv"} />
+        <Favorite />
         <div id="opnSrcLink">
           <a
             href="https://github.com/kerenLyahov/Keren-Lyahovchook-4.4.2022"

@@ -8,7 +8,7 @@ export default function DisplayWeather(props) {
   let [temp, setTemp] = useState({
     ready: false,
     temp: props.current.temp_c,
-    unit: "°C",
+    unit: "C",
     min: days.map((i) => {
       return props.min[i];
     }),
@@ -22,7 +22,7 @@ export default function DisplayWeather(props) {
     setTemp({
       ready: true,
       temp: props.current.temp_c,
-      unit: "°C",
+      unit: "C",
       min: days.map((i) => {
         return props.min[i];
       }),
@@ -35,8 +35,8 @@ export default function DisplayWeather(props) {
   function celsius() {
     setTemp({
       ready: true,
-      temp: props.current.temp_c,
-      unit: "°C",
+      temp: Math.round(props.current.temp_c),
+      unit: "C",
       min: days.map((i) => {
         return props.min[i];
       }),
@@ -49,7 +49,7 @@ export default function DisplayWeather(props) {
     setTemp({
       ready: true,
       temp: props.current.temp_f,
-      unit: "°F",
+      unit: "F",
       min: days.map((i) => {
         return Math.round((props.min[i] * 9) / 5 + 32);
       }),
@@ -84,8 +84,7 @@ export default function DisplayWeather(props) {
         <div className="cityName"> {props.name}</div>{" "}
         <div>
           <div className="temperature">
-            {temp.temp}
-            {temp.unit}
+            {temp.temp}°<span className="temp-unit">{temp.unit}</span>
           </div>
         </div>
         <div className="description">{props.current.description}</div>

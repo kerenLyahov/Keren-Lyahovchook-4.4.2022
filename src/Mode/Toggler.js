@@ -6,17 +6,18 @@ const Button = styled.button`
   background: ${({ theme }) => theme.background};
   border: 2px solid ${({ theme }) => theme.toggleBorder};
   color: ${({ theme }) => theme.toggleText};
-  padding: 0 0.5rem;
-  border-radius: 0.2rem;
   font-weight: 400;
   line-height: 1.5;
-  font-size: 1rem;
-  border-radius: 0.25rem;
   cursor: pointer;
   font-family: inherit;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `;
 const Toggle = ({ theme, toggleTheme }) => {
-  return <Button onClick={toggleTheme}>Switch theme</Button>;
+  return <Button onClick={toggleTheme}>switch theme</Button>;
 };
 
 Toggle.propTypes = {

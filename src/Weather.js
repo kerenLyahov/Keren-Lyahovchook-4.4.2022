@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import APIdata from "./Weather/APIdata";
-import Favorite from "./Favorite/Favorite";
 import "./Weather.css";
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({
     ready: false,
   });
-
   let [cityName, setCityName] = useState(props.city);
-
+  let [location, setLocation] = useState("");
   let ApiKey = `RQdrnJyUpOMTZn7Sn8mVB4kLM4TFfKgz`;
-
   function search() {
     let URL = `http://dataservice.accuweather.com/locations/v1/search?q=${cityName}&apikey=${ApiKey}`;
     axios.get(URL).then(handleResponse);
@@ -33,11 +30,31 @@ export default function Weather(props) {
       ready: true,
       key: response.data[0].Key,
       name: response.data[0].EnglishName,
-      c_temp: response.data[0].GeoPosition.Elevation.Metric.Value,
-      f_temp: response.data[0].GeoPosition.Elevation.Imperial.Value,
     });
   }
+  function favorite() {
+    window.localStorage.setItem("favorite", JSON.stringify({ weatherData }));
+  }
 
+  function currentLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+
+  function showPosition(position) {
+    console.log(position);
+    console.log(weatherData);
+    setWeatherData({ ready: false });
+    let URL = ` http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${ApiKey}&q=${position.coords.latitude},${position.coords.longitude}`;
+    axios.get(URL).then(handleLocationResponse);
+  }
+  function handleLocationResponse(response) {
+    console.log(response);
+    setWeatherData({
+      ready: true,
+      key: response.data.Key,
+      name: response.data.EnglishName,
+    });
+  }
   if (weatherData.ready) {
     return (
       <div className="weather-main">
@@ -57,7 +74,20 @@ export default function Weather(props) {
               </button>
             </div>
             <div className="col-auto my-1">
-              <button type="submit" className="btn btn-link addToFavorite">
+              <button
+                type="submit"
+                className="btn btn-primary btn-sm submit-btn currrentLoc"
+                onClick={currentLocation}
+              >
+                🔍
+              </button>
+            </div>
+            <div className="col-auto my-1">
+              <button
+                type="submit"
+                className="btn btn-link addToFavorite"
+                onClick={favorite}
+              >
                 ⭐
               </button>
             </div>
@@ -67,11 +97,6 @@ export default function Weather(props) {
           data={weatherData.key}
           apikey={ApiKey}
           name={weatherData.name}
-        />
-        <Favorite
-          name={weatherData.name}
-          cTemp={weatherData.c_temp}
-          fTemp={weatherData.f_temp}
         />
       </div>
     );
